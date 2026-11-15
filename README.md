@@ -1,45 +1,39 @@
-# Matheus Augusto Ribeiro — Developer Portfolio (versão jogo 2D)
+# 🎮 Matheus Augusto Ribeiro — Developer Portfolio (versão jogo 2D)
 
-Portfólio profissional transformado em um jogo 2D de exploração em pixel art.
-O visitante controla um personagem, anda por 7 áreas e conhece o portfólio
-interagindo com objetos. Quem não quiser jogar tem o **Portfólio Tradicional**
-(menu inicial, pausa ou o link `#portfolio`) e o **índice do mapa** (tecla `M`).
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Canvas 2D](https://img.shields.io/badge/Canvas_2D-0f1226?style=for-the-badge)
 
-Tudo é HTML5 + CSS3 + JavaScript puro com Canvas 2D. Não há frameworks,
-dependências nem etapa de build. Sprites e sons são gerados por código, então
-não existem arquivos de imagem ou áudio para carregar.
+Portfólio profissional transformado em um **jogo 2D de exploração em pixel art**. O visitante controla um personagem, anda por 7 áreas e conhece o portfólio interagindo com objetos. Quem não quiser jogar tem o **Portfólio Tradicional** (menu inicial, pausa ou o link `#portfolio`) e o **índice do mapa** (tecla `M`).
 
----
+Tudo é **HTML5 + CSS3 + JavaScript puro com Canvas 2D**. Não há frameworks, dependências nem etapa de build. Sprites e sons são gerados por código, então não existem arquivos de imagem ou áudio pesados para carregar.
 
-## Conteúdo
-
-Todo o conteúdo do `index.html` original e do currículo em PDF já está em
-**`js/portfolio-data.js`**: apresentação, sobre, números, as 9 tecnologias e as
-4 áreas de atuação, os projetos (EtiquetaFlow, Forninho da Lili e Loja Virtual,
-este último vindo do currículo), a lista "Mais no GitHub" carregada
-automaticamente da API, as experiências, a formação, os 9 cursos, os idiomas, os
-depoimentos, os contatos (WhatsApp, e-mail, GitHub, Instagram), o formulário, o
-currículo para download, os metadados e o tema claro/escuro (na versão
-tradicional).
-
-### Antes de publicar
-
-1. **Imagens:** copie do projeto original a pasta `img/` (`foto.webp`,
-   `etiquetaflow.webp`, `forninho.webp`) e o `og-image.jpg` para a raiz. Se
-   alguma imagem faltar, ela simplesmente não aparece, sem quebrar a página.
-2. **Formulário:** o original estava em modo demonstração no Formspree. Sem
-   endpoint, o envio abre o app de e-mail do visitante com a mensagem pronta.
-   Para receber direto, cole o link do Formspree em `contact.form.formEndpoint`.
-3. **LinkedIn:** quando tiver, preencha `contact.linkedin`. O terminal aparece
-   sozinho no mapa.
-
-Ao adicionar itens em `skills`, `projects`, `experience`, `education`,
-`certificates` ou `testimonials`, **o mapa cria automaticamente** uma nova
-estação, terminal, mesa, estante ou quadro para cada item.
+🔗 **Acesse online:** [quem-e-matheus.onrender.com](https://quem-e-matheus.onrender.com)
 
 ---
 
-## Como executar localmente
+## 📋 Conteúdo
+
+Todo o conteúdo do `index.html` original e do currículo em PDF já está centralizado em **`js/portfolio-data.js`**:
+- Apresentação, sobre e números;
+- As 9 tecnologias e as 4 áreas de atuação;
+- Projetos (**EtiquetaFlow**, **Forninho da Lili** e **Loja Virtual**, este último vindo do currículo) + lista *"Mais no GitHub"* carregada automaticamente da API;
+- Experiências, formação, 9 cursos e idiomas;
+- Depoimentos, contatos (WhatsApp, e-mail, GitHub, Instagram), formulário e currículo para download;
+- Metadados e tema claro/escuro (na versão tradicional).
+
+> 💡 **Geração Dinâmica no Mapa:** Ao adicionar itens em `skills`, `projects`, `experience`, `education`, `certificates` ou `testimonials`, **o mapa cria automaticamente** uma nova estação, terminal, mesa, estante ou quadro para cada item.
+
+### ⚠️ Checklist antes de publicar
+
+1. **Imagens:** copie do projeto original a pasta `img/` (`foto.webp`, `etiquetaflow.webp`, `forninho.webp`) e o `og-image.jpg` para a raiz. Se alguma imagem faltar, ela simplesmente não aparece, sem quebrar a página.
+2. **Formulário:** o original estava em modo demonstração no Formspree. Sem endpoint, o envio abre o app de e-mail do visitante com a mensagem pronta. Para receber direto, cole o link do Formspree em `contact.form.formEndpoint`.
+3. **LinkedIn:** quando tiver, preencha `contact.linkedin`. O terminal aparece sozinho no mapa.
+
+---
+
+## 🚀 Como executar localmente
 
 Não precisa instalar nada:
 
@@ -48,69 +42,3 @@ Não precisa instalar nada:
    ```bash
    cd portfolio-game
    python3 -m http.server 8080      # ou: npx serve .
-   ```
-   e acesse <http://localhost:8080>.
-
-## Como publicar
-
-É um site estático. Envie a pasta inteira para qualquer host:
-
-- **Render** (o site atual): *New → Static Site*, aponte para o repositório,
-  deixe o build command vazio e use `.` como publish directory.
-- **GitHub Pages**: envie para um repositório → *Settings → Pages* →
-  branch `main`, pasta `/root`.
-- **Netlify / Vercel**: arraste a pasta ou conecte o repositório (sem build).
-
-## Controles
-
-| Ação | Teclado | Toque |
-|---|---|---|
-| Andar | `W A S D` ou setas | joystick virtual |
-| Interagir / avançar diálogo | `E`, `Enter` ou `Espaço` | botão **E** ou tocar na caixa |
-| Pausa / fechar janela | `ESC` | botão **II** |
-| Mapa + viagem rápida + índice | `M` | ícone de mapa / minimapa |
-| Missões e conquistas | `Q` | ícone de lista |
-
-## Estrutura
-
-```
-portfolio-game/
-├── index.html              # estrutura, metadados, menu, HUD, janelas
-├── css/
-│   ├── style.css           # base, componentes e portfólio tradicional
-│   └── game.css            # menu, HUD, diálogos, modais, toque
-├── js/
-│   ├── portfolio-data.js   # ← TODO o conteúdo do portfólio
-│   ├── sprites.js          # pixel art procedural (tiles, personagem, objetos)
-│   ├── map.js              # geração do mundo e posicionamento das 7 áreas
-│   ├── player.js           # movimento, colisão e animação do personagem
-│   ├── game.js             # loop, câmera, luz, partículas e renderização
-│   ├── interactions.js     # o que cada objeto faz ao apertar E
-│   ├── ui.js               # HUD, diálogos, janelas, mapa, portfólio tradicional
-│   ├── state.js            # progresso, missões, conquistas, save (localStorage)
-│   ├── audio.js            # efeitos e trilha chiptune (Web Audio API)
-│   ├── input.js            # teclado e joystick virtual
-│   └── main.js             # inicialização, menu animado, atalhos
-├── assets/                 # currículo PDF, favicon e pastas livres
-├── img/                    # copie aqui as imagens do site original
-└── README.md
-```
-
-## Recursos
-
-- Mapa 80×60 tiles com praça central e 7 áreas: Sobre Mim (casa-escritório),
-  Habilidades (laboratório), Projetos (centro de desenvolvimento), Experiência
-  (escritório), Formação e Certificados (biblioteca), Depoimentos (galeria) e
-  Contato (central de comunicação).
-- Personagem com caminhada e repouso nas 4 direções, colisão com deslize em
-  quinas, câmera suave e renderização em escala inteira (pixels nítidos).
-- Iluminação dinâmica, vagalumes, hologramas, telas e LEDs animados.
-- Byte, o robô assistente, faz o tutorial e sugere a próxima área.
-- 9 missões, 11 conquistas, indicador de exploração, minimapa e marcadores "!".
-- Progresso e configurações salvos no navegador.
-- Formulário de contato: sem backend, abre o e-mail do visitante com a mensagem
-  pronta. Para envio direto, informe um endpoint (Formspree etc.) em
-  `contact.form.formEndpoint`.
-- Acessibilidade: portfólio tradicional semântico, índice de conteúdo no mapa,
-  navegação por teclado com foco preso nas janelas, link "pular para o
-  conteúdo", `prefers-reduced-motion` respeitado (e opção nas configurações).
