@@ -9,7 +9,7 @@ Portfólio profissional transformado em um **jogo 2D de exploração em pixel ar
 
 Tudo é **HTML5 + CSS3 + JavaScript puro com Canvas 2D**. Não há frameworks, dependências nem etapa de build. Sprites e sons são gerados por código, então não existem arquivos de imagem ou áudio pesados para carregar.
 
-🔗 **Acesse online:** [quem-e-matheus.onrender.com](https://quem-e-matheus.onrender.com)
+🔗 **Acesse online:** [quem-e-matheus.onrender.com](https://portfolio-game-y2e3.onrender.com/)
 
 ---
 
