@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/icons/favicon.svg" width="72" alt="Avatar em pixel art de Matheus">
+
 
 # Matheus Augusto Ribeiro · Developer Portfolio
 
@@ -30,7 +30,6 @@ habilidades, projetos e contatos interagindo com o mundo.
 ![Sem dependências](https://img.shields.io/badge/depend%C3%AAncias-0-success)
 ![Responsivo](https://img.shields.io/badge/mobile-joystick_virtual-b892ff)
 
-<img src="docs/screenshots/menu.jpg" width="820" alt="Menu inicial do jogo com o personagem em pixel art">
 
 </div>
 
