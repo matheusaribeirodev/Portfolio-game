@@ -1,1 +1,0 @@
-Copie para esta pasta as imagens do site original: foto.webp, etiquetaflow.webp e forninho.webp. E coloque og-image.jpg na raiz do projeto.
