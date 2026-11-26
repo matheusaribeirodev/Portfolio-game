@@ -1,1 +1,0 @@
-Os gráficos/sons deste projeto são gerados por código (js/sprites.js e js/audio.js). Esta pasta fica disponível caso você queira adicionar arquivos próprios.
