@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Matheus Augusto Ribeiro — Desenvolvedor Full Stack &amp; UI Designer</title>
+  <meta name="description" content="Portfólio de Matheus Augusto Ribeiro, desenvolvedor Full Stack e UI Designer de Cajamar (SP). Sites, sistemas e automações.">
+  <meta name="author" content="Matheus Augusto Ribeiro">
+  <meta name="theme-color" content="#0f1226">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Matheus Augusto Ribeiro — Developer Portfolio">
+  <meta property="og:description" content="Portfólio interativo de Matheus Augusto Ribeiro, Desenvolvedor Full Stack e UI Designer.">
+  <meta property="og:url" content="https://quem-e-matheus.onrender.com">
+  <!-- Imagem de compartilhamento (WhatsApp/LinkedIn): 1200x630, mesmo arquivo do site original -->
+  <meta property="og:image" content="og-image.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@400;600;700&family=Press+Start+2P&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+  <a href="#portfolio" class="skip-link" id="skip-link">Pular para o portfólio em texto (sem jogo)</a>
+
+  <noscript>
+    <div class="noscript">
+      <h1>Matheus Augusto Ribeiro</h1>
+      <p>Desenvolvedor Full Stack &amp; UI Designer · Estudante de Análise e Desenvolvimento de Sistemas no SENAI · Cajamar, São Paulo.</p>
+      <p>Sou Matheus, estudante de Análise e Desenvolvimento de Sistemas no SENAI. Crio sites, sistemas e automações do começo ao fim, do protótipo no Figma até o código no ar.</p>
+      <p><a href="assets/Curriculo_Matheus_Augusto_Ribeiro.pdf" download>Baixar currículo (PDF)</a></p>
+      <p>Este portfólio interativo precisa de JavaScript. Contato:
+        <a href="mailto:matheus.a.ribeiroo@gmail.com">matheus.a.ribeiroo@gmail.com</a> ·
+        <a href="https://wa.me/5511972181449">WhatsApp (11) 97218-1449</a> ·
+        <a href="https://github.com/matheusaribeirodev">GitHub</a> ·
+        <a href="https://instagram.com/ribeiir0x">Instagram</a></p>
+    </div>
+  </noscript>
+
+  <div id="app">
+    <canvas id="game" tabindex="-1" aria-label="Mundo 2D do portfólio. Use o mapa (tecla M) ou o portfólio tradicional para acessar o conteúdo sem jogar."></canvas>
+
+    <!-- ===================== MENU INICIAL ===================== -->
+    <section id="menu" class="screen" aria-labelledby="menu-title">
+      <canvas id="menu-bg" aria-hidden="true"></canvas>
+      <div class="menu-content">
+        <p class="menu-kicker"><span>Developer Portfolio</span></p>
+        <h1 id="menu-title">Matheus<br>Augusto Ribeiro</h1>
+        <p class="menu-role">Desenvolvedor Full Stack &amp; UI Designer</p>
+        <nav class="menu-buttons" aria-label="Menu inicial">
+          <button id="btn-start" class="pbtn pbtn-primary"><span>▶ INICIAR JOGO</span><small id="start-sub"></small></button>
+          <button id="btn-controls" class="pbtn"><span>CONTROLES</span></button>
+          <button id="btn-classic" class="pbtn"><span>PORTFÓLIO TRADICIONAL</span></button>
+        </nav>
+        <p class="menu-foot">Cajamar · SP &nbsp;•&nbsp; Áudio opcional &nbsp;•&nbsp; Progresso salvo no navegador</p>
+      </div>
+    </section>
+
+    <!-- ===================== HUD ===================== -->
+    <div id="hud" hidden>
+      <div class="hud-card">
+        <canvas id="hud-avatar" width="18" height="26" aria-hidden="true"></canvas>
+        <div class="hud-info">
+          <strong id="hud-name">MATHEUS</strong>
+          <span id="hud-role"></span>
+          <div id="progress-bar" class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progresso de exploração">
+            <span id="progress-fill"></span>
+          </div>
+          <span id="progress-label" class="hud-small">Exploração 0%</span>
+          <div id="area-pips" aria-label="Áreas exploradas"></div>
+        </div>
+      </div>
+      <div id="hud-actions" class="hud-actions"></div>
+      <button id="minimap-btn" class="minimap" aria-label="Abrir mapa e navegação (M)"><canvas id="minimap" aria-hidden="true"></canvas><span>MAPA · M</span></button>
+      <div id="quest-tracker" class="quest-tracker" aria-live="polite"></div>
+      <div id="prompt" class="prompt" aria-live="polite"></div>
+      <div id="hint" class="hint"></div>
+    </div>
+    <div id="zone-banner" class="zone-banner" aria-live="polite"></div>
+    <div id="toasts" class="toasts" aria-live="polite"></div>
+
+    <!-- ===================== DIÁLOGO RPG ===================== -->
+    <div id="dialog" class="dialog" hidden role="dialog" aria-live="polite" aria-label="Diálogo">
+      <canvas class="portrait" width="48" height="48" aria-hidden="true"></canvas>
+      <div class="dlg-body">
+        <p class="dlg-name"></p>
+        <p class="dlg-text"></p>
+      </div>
+      <span class="dlg-next" aria-hidden="true">▼</span>
+      <span class="dlg-help">E · Enter · toque para continuar</span>
+    </div>
+
+    <!-- ===================== JANELA (MODAL) ===================== -->
+    <div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-window">
+        <header class="modal-head">
+          <button class="modal-back" aria-label="Voltar" hidden>←</button>
+          <span class="modal-badge"></span>
+          <h2 id="modal-title"></h2>
+          <button class="modal-close" aria-label="Fechar (ESC)">✕</button>
+        </header>
+        <div class="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- ===================== CONTROLES DE TOQUE ===================== -->
+    <div id="touch" class="touch" hidden>
+      <div id="joy-base" class="joy-base" aria-label="Joystick virtual"><div id="joy-knob" class="joy-knob"></div></div>
+      <button id="touch-pause" class="touch-btn small" aria-label="Pausa">II</button>
+      <button id="touch-jump" class="touch-btn mini jump" aria-label="Pular">⤒</button>
+      <button id="touch-dash" class="touch-btn mini dash" aria-label="Dash">»</button>
+      <button id="touch-e" class="touch-btn" aria-label="Interagir">E</button>
+    </div>
+
+    <!-- ===================== CUTSCENES ===================== -->
+    <div id="cine" class="cine" aria-hidden="true">
+      <div class="cine-bar top"></div><div class="cine-bar bottom"></div>
+      <p id="cine-caption" class="cine-caption"></p>
+      <button id="cine-skip" class="cine-skip" type="button">Pular ▸▸</button>
+    </div>
+    <div id="bubble" class="bubble" hidden role="status"></div>
+
+    <div id="fade" class="fade" aria-hidden="true"></div>
+  </div>
+
+  <!-- ===================== PORTFÓLIO TRADICIONAL ===================== -->
+  <main id="classic" class="classic" hidden></main>
+
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/sprites.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/cutscene.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
